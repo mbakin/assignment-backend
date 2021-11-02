@@ -44,7 +44,7 @@ describe('Bad Request for GET method wrong query /todo/', () => {
     }).end((err, res) =>{
       expect(res.body.title).to.equal(res.body.title)
       expect(res.body._id).to.equal(res.body._id)
-      expect(404)
+      expect(400)
     })
   });
   

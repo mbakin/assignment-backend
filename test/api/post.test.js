@@ -7,13 +7,13 @@ var app = request.agent(server)
 
 
 describe('POST method /todos/ create new todo item', () => {
-  it('Add new todo  status code 200', () => {
+  it('Add new todo  status code 201', () => {
     app.post('/todos/' ).send({
       title: "TEST"
     }).end((err, res) =>{
       expect(res.body.title).to.equal(res.body.title)
       expect(res.body._id).to.equal(res.body._id)
-      expect(200)
+      expect(201)
     })
   });
   
@@ -24,7 +24,7 @@ describe('Returns 404 status code if required field is null', () => {
     app.post('/todos/' ).send({}).end((err, res) =>{
       expect(res.body.title).to.equal(res.body.title)
       expect(res.body._id).to.equal(res.body._id)
-      expect(404)
+      expect(400)
     })
   });
   
