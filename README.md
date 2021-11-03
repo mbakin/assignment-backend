@@ -42,8 +42,7 @@ npm run test
 
 
 <br>
-<br>
-<br>
+
 
 To run the API service and connect to MongoDB:
 ```
