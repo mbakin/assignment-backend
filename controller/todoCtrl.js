@@ -32,4 +32,29 @@ const fetchTodo = async (req, res) => {
   }
 };
 
-module.exports = { createTodo, fetchTodos, fetchTodo };
+//update todo
+const updateTodo = async (req, res) => {
+  try {
+    const todo = await Todo.findByIdAndUpdate(
+      req.params.id,
+      {
+        complete : !req.body.complete
+      },
+      
+    );
+    res.status(200).json(todo);
+  } catch (error) {
+    res.status(400).json(Error);
+  }
+};
+
+//Delete todo
+const deleteTodo = async (req, res) => {
+  try {
+    await Todo.findByIdAndDelete(req.params.id);
+    res.send('Todo has succeffully deleted');
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+module.exports = { createTodo, fetchTodos, fetchTodo, updateTodo, deleteTodo };
